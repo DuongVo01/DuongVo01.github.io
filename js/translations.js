@@ -149,6 +149,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to update content
     function updateContent(lang) {
+        // Don't do anything if clicking the current language
+        if (currentLang === lang) return;
+
+        // Update the content immediately
         document.querySelectorAll('[data-lang]').forEach(element => {
             const key = element.getAttribute('data-lang');
             if (translations[lang][key]) {
@@ -161,7 +165,11 @@ document.addEventListener('DOMContentLoaded', function() {
             btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
         });
 
+        // Update the current language
         currentLang = lang;
+        
+        // Store the selected language
+        localStorage.setItem('language', lang);
     }
 
     // Add click event listeners to language buttons
@@ -172,6 +180,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Initialize with default language
-    updateContent(currentLang);
+    // Initialize with saved language or default
+    const savedLang = localStorage.getItem('language') || 'vi';
+    updateContent(savedLang);
 }); 

@@ -287,11 +287,11 @@ nav {
 
 /* Content Fade Effect */
 [data-lang] {
-    transition: opacity 0.2s ease;
+    transition: none;
 }
 
 .lang-transition [data-lang] {
-    opacity: 0.5;
+    opacity: 1;
 }
 
 /* Enhanced Language Switcher */
@@ -327,6 +327,7 @@ nav {
 
 .lang-btn.active {
     color: #fff;
+    font-weight: 700;
 }
 
 .lang-btn:not(.active) {
@@ -362,7 +363,6 @@ nav {
 /* Active state styles */
 .lang-btn.active {
     transform: scale(1.05);
-    font-weight: 700;
 }
 
 /* Hover effect for the entire switcher */
@@ -382,11 +382,6 @@ nav {
         padding: 6px 12px;
         font-size: 0.85rem;
     }
-
-    .lang-switch::before {
-        height: calc(100% - 4px);
-        top: 2px;
-    }
 }
 
 /* Dark mode adjustments */
@@ -396,10 +391,6 @@ nav {
 
 [data-theme="dark"] .lang-btn:not(.active) {
     color: var(--text-secondary);
-}
-
-[data-theme="dark"] .lang-switch::before {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* Contact Section */
