@@ -6,102 +6,105 @@
     <meta name="description" content="Portfolio cá nhân của Võ Trùng Dương - Web Developer & UI/UX Designer">
     <title>Võ Trùng Dương - Portfolio</title>
     
-    <!-- CSS -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/portfolio.css">
+    
+    <!-- Theme Switcher -->
+    <script>
+        // Check if user has a theme preference
+        const userTheme = localStorage.getItem('theme');
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', userTheme || systemTheme);
+    </script>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <div class="logo-container">
-                <a href="#" class="logo-text" data-lang="logo">Võ Trùng<span class="highlight">Dương</span></a>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <span class="name">Võ Trùng</span>
+                <span class="highlight">Dương</span>
+            </a>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active" data-lang="nav-home">Trang Chủ</a>
+                <a href="#services" class="nav-link" data-lang="nav-services">Dịch Vụ</a>
+                <a href="#portfolio" class="nav-link" data-lang="nav-portfolio">Dự Án</a>
+                <a href="#about" class="nav-link" data-lang="nav-about">Giới Thiệu</a>
+                <a href="#contact" class="nav-link" data-lang="nav-contact">Liên Hệ</a>
             </div>
-            
-            <div class="nav-container">
-                <ul class="nav-links">
-                    <li><a href="#home" class="nav-link" data-lang="nav-home">Trang Chủ</a></li>
-                    <li><a href="#services" class="nav-link" data-lang="nav-services">Dịch Vụ</a></li>
-                    <li><a href="#portfolio" class="nav-link" data-lang="nav-portfolio">Dự Án</a></li>
-                    <li><a href="#about" class="nav-link" data-lang="nav-about">Giới Thiệu</a></li>
-                    <li><a href="#contact" class="nav-link" data-lang="nav-contact">Liên Hệ</a></li>
-                </ul>
-                
-                <div class="theme-switch">
-                    <i class="fas fa-sun"></i>
-                    <i class="fas fa-moon"></i>
-                </div>
-
-                <div class="lang-switch">
-                    <button class="lang-btn" data-lang="en">EN</button>
-                    <button class="lang-btn active" data-lang="vi">VI</button>
+            <div class="nav-controls">
+                <button class="theme-toggle">
+                    <i class="fas fa-sun light-icon"></i>
+                    <i class="fas fa-moon dark-icon"></i>
+                </button>
+                <div class="language-selector">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="vi">VI</button>
                 </div>
             </div>
-        </nav>
-    </header>
-
-    <div class="mobile-menu">
-        <nav class="nav-links">
-            <a href="#home" data-translate="nav.home">Home</a>
-            <a href="#services" data-translate="nav.services">Services</a>
-            <a href="#portfolio" data-translate="nav.portfolio">Portfolio</a>
-            <a href="#about" data-translate="nav.about">About</a>
-            <a href="#contact" data-translate="nav.contact">Contact</a>
-        </nav>
-    </div>
-
-    <div class="progress-bar"></div>
+            <button class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div id="particles-js"></div>
-        <div class="parallax-shape shape-1" data-speed="0.5"></div>
-        <div class="parallax-shape shape-2" data-speed="-0.3"></div>
-        <div class="parallax-shape shape-3" data-speed="0.2"></div>
-        <div class="hero-content">
-            <h1 class="hero-name" data-lang="hero-name">Võ Trùng Dương</h1>
-            <h2 class="hero-title" data-lang="hero-title">Lập Trình Viên Web & Thiết Kế UI/UX</h2>
-            <p class="hero-subtitle" data-lang="hero-subtitle">
-                Chuyên thiết kế và phát triển các website hiện đại, thân thiện với người dùng, kết hợp giữa thiết kế đẹp mắt và tính năng mạnh mẽ.
-            </p>
-            <div class="hero-cta">
-                <a href="#portfolio" class="btn btn-primary" data-lang="cta-portfolio">Xem Dự Án</a>
-                <a href="#contact" class="btn btn-secondary" data-lang="cta-contact">Liên Hệ</a>
-            </div>
-            <div class="social-links">
-                <a href="https://github.com/DuongVo01" target="_blank" rel="noopener" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.facebook.com/share/1AWu3pJGZE/" target="_blank" rel="noopener" aria-label="Facebook">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="https://www.youtube.com/@_VoTrungDuong" target="_blank" rel="noopener" aria-label="YouTube">
-                    <i class="fab fa-youtube"></i>
-                </a>
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span data-lang="hero-name">Võ Trùng Dương</span>
+                </h1>
+                <h2 class="hero-subtitle" data-lang="hero-title">Lập Trình Viên Web & Thiết Kế UI/UX</h2>
+                <p class="hero-description" data-lang="hero-description">
+                    Chuyên thiết kế và phát triển các website hiện đại, thân thiện với người dùng, 
+                    kết hợp giữa thiết kế đẹp mắt và tính năng mạnh mẽ.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn btn-primary" data-lang="hero-btn-portfolio">Xem Dự Án</a>
+                    <a href="#contact" class="btn btn-secondary" data-lang="hero-btn-contact">Liên Hệ</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="services">
+    <section id="services" class="services-section">
         <div class="container">
-            <h2 data-lang="services-title">Dịch Vụ Của Tôi</h2>
+            <h2 class="section-title" data-lang="services-title">Dịch Vụ Của Tôi</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <i class="fas fa-code"></i>
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
                     <h3 data-lang="service-web-title">Phát Triển Website</h3>
-                    <p data-lang="service-web-desc">Xây dựng website tùy chỉnh với công nghệ hiện đại và các phương pháp tốt nhất.</p>
+                    <p data-lang="service-web-description">
+                        Xây dựng website tùy chỉnh với công nghệ hiện đại và các phương pháp tốt nhất.
+                    </p>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-palette"></i>
-                    <h3 data-lang="service-design-title">Thiết Kế UI/UX</h3>
-                    <p data-lang="service-design-desc">Thiết kế giao diện đẹp và trực quan, tạo trải nghiệm người dùng tuyệt vời.</p>
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 data-lang="service-ui-title">Thiết Kế UI/UX</h3>
+                    <p data-lang="service-ui-description">
+                        Thiết kế giao diện đẹp và trực quan, tạo trải nghiệm người dùng tuyệt vời.
+                    </p>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-mobile-alt"></i>
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
                     <h3 data-lang="service-mobile-title">Ứng Dụng Di Động</h3>
-                    <p data-lang="service-mobile-desc">Phát triển ứng dụng di động cho iOS và Android với trải nghiệm mượt mà.</p>
+                    <p data-lang="service-mobile-description">
+                        Phát triển ứng dụng di động cho iOS và Android với trải nghiệm mượt mà.
+                    </p>
                 </div>
             </div>
         </div>
@@ -311,201 +314,178 @@
     </section>
 
     <!-- About Section -->
-    <section class="about" id="about">
-        <div class="about-container">
-            <h2 class="about-title" data-lang="about-title">Về Tôi</h2>
+    <section id="about" class="about-section">
+        <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <p data-lang="about-text1">Xin chào! Tôi là Võ Trùng Dương, một lập trình viên web và nhà thiết kế đam mê tại Việt Nam. Tôi kết hợp chuyên môn kỹ thuật với thiết kế sáng tạo để xây dựng các website không chỉ đẹp mà còn mang lại trải nghiệm người dùng tuyệt vời.</p>
-                    <p data-lang="about-text2">Với nền tảng vững chắc về công nghệ web hiện đại và con mắt thẩm mỹ, tôi tạo ra các giải pháp số giúp doanh nghiệp và cá nhân xây dựng sự hiện diện trực tuyến mạnh mẽ.</p>
-                    
-                    <div class="stats-container">
-                        <div class="stat-item">
-                            <div class="stat-number">50+</div>
-                            <div class="stat-label" data-lang="stats-projects">Dự Án Đã Hoàn Thành</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">30+</div>
-                            <div class="stat-label" data-lang="stats-clients">Khách Hàng Hài Lòng</div>
+                    <h2 class="section-title" data-lang="about-title">Về Tôi</h2>
+                    <p class="about-description" data-lang="about-description">
+                        Xin chào! Tôi là Võ Trùng Dương, một lập trình viên web và nhà thiết kế đam mê tại Việt Nam.
+                        Tôi kết hợp chuyên môn kỹ thuật với thiết kế sáng tạo để xây dựng các website không chỉ đẹp
+                        mà còn mang lại trải nghiệm người dùng tuyệt vời.
+                    </p>
+                    <p class="about-description" data-lang="about-description-2">
+                        Với nền tảng vững chắc về công nghệ web hiện đại và con mắt thẩm mỹ, tôi tạo ra các giải pháp số
+                        giúp doanh nghiệp và cá nhân xây dựng sự hiện diện trực tuyến mạnh mẽ.
+                    </p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <h3 class="stat-number">50+</h3>
+                        <p class="stat-label" data-lang="stat-projects">Dự Án Đã Hoàn Thành</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 class="stat-number">30+</h3>
+                        <p class="stat-label" data-lang="stat-clients">Khách Hàng Hài Lòng</p>
+                    </div>
+                </div>
+            </div>
+            <div class="experience-section">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">2023 - Hiện tại</h3>
+                            <h4 class="timeline-subtitle">Freelance Web Developer</h4>
+                            <p class="timeline-description">
+                                Phát triển các dự án web độc lập, tập trung vào UI/UX và trải nghiệm người dùng.
+                            </p>
                         </div>
                     </div>
-
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-date">2023 - Hiện tại</div>
-                            <div class="timeline-title" data-lang="timeline-current">Freelance Web Developer</div>
-                            <div class="timeline-description" data-lang="timeline-current-desc">Phát triển các dự án web độc lập, tập trung vào UI/UX và trải nghiệm người dùng.</div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">2021 - 2023</h3>
+                            <h4 class="timeline-subtitle">Frontend Developer tại TechCorp</h4>
+                            <p class="timeline-description">
+                                Phát triển giao diện người dùng cho các ứng dụng web quy mô lớn, sử dụng React và TypeScript.
+                            </p>
                         </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">2021 - 2023</div>
-                            <div class="timeline-title" data-lang="timeline-previous">Frontend Developer tại TechCorp</div>
-                            <div class="timeline-description" data-lang="timeline-previous-desc">Phát triển giao diện người dùng cho các ứng dụng web quy mô lớn, sử dụng React và TypeScript.</div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">2019 - 2021</div>
-                            <div class="timeline-title" data-lang="timeline-education">Đại học Công nghệ</div>
-                            <div class="timeline-description" data-lang="timeline-education-desc">Tốt nghiệp chuyên ngành Công nghệ Thông tin, chuyên sâu về phát triển web.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">2019 - 2021</h3>
+                            <h4 class="timeline-subtitle">Đại học Công nghệ</h4>
+                            <p class="timeline-description">
+                                Tốt nghiệp chuyên ngành Công nghệ Thông tin, chuyên sâu về phát triển web.
+                            </p>
                         </div>
                     </div>
                 </div>
-
-                <div class="skills-section">
-                    <div class="skills-category">
-                        <h3 class="category-title">
-                            <i class="fas fa-code"></i>
-                            <span data-lang="skills-frontend">Frontend</span>
-                        </h3>
-                        <div class="skills-list">
-                            <div class="skill-item" style="--skill-level: 90%">
-                                <div class="skill-content">
-                                    <div class="skill-icon">
-                                        <i class="fab fa-html5"></i>
-                                    </div>
-                                    <div class="skill-info">
-                                        <span class="skill-name">HTML5 & CSS3</span>
-                                        <span class="skill-level-text">90%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skill-item" style="--skill-level: 85%">
-                                <div class="skill-content">
-                                    <div class="skill-icon">
-                                        <i class="fab fa-js"></i>
-                                    </div>
-                                    <div class="skill-info">
-                                        <span class="skill-name">JavaScript (ES6+)</span>
-                                        <span class="skill-level-text">85%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skill-item" style="--skill-level: 80%">
-                                <div class="skill-content">
-                                    <div class="skill-icon">
-                                        <i class="fab fa-react"></i>
-                                    </div>
-                                    <div class="skill-info">
-                                        <span class="skill-name">React.js</span>
-                                        <span class="skill-level-text">80%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skill-item" style="--skill-level: 85%">
-                                <div class="skill-content">
-                                    <div class="skill-icon">
-                                        <i class="fas fa-mobile-alt"></i>
-                                    </div>
-                                    <div class="skill-info">
-                                        <span class="skill-name">Responsive Design</span>
-                                        <span class="skill-level-text">85%</span>
-                                    </div>
-                                </div>
-                            </div>
+            </div>
+            <div class="skills-section">
+                <div class="skills-group">
+                    <h3 class="skills-title">Frontend</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">HTML5 & CSS3</span>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
                         </div>
                     </div>
-                    
-                    <div class="skills-category">
-                        <h3 class="category-title">
-                            <i class="fas fa-paint-brush"></i>
-                            <span data-lang="skills-design">Design</span>
-                        </h3>
-                        <div class="skills-list">
-                            <div class="skill-item" style="--skill-level: 85%">
-                                <div class="skill-content">
-                                    <div class="skill-icon">
-                                        <i class="fas fa-pencil-ruler"></i>
-                                    </div>
-                                    <div class="skill-info">
-                                        <span class="skill-name">UI/UX Design</span>
-                                        <span class="skill-level-text">85%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skill-item" style="--skill-level: 80%">
-                                <div class="skill-content">
-                                    <div class="skill-icon">
-                                        <i class="fab fa-figma"></i>
-                                    </div>
-                                    <div class="skill-info">
-                                        <span class="skill-name">Figma</span>
-                                        <span class="skill-level-text">80%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skill-item" style="--skill-level: 75%">
-                                <div class="skill-content">
-                                    <div class="skill-icon">
-                                        <i class="fas fa-vector-square"></i>
-                                    </div>
-                                    <div class="skill-info">
-                                        <span class="skill-name">Adobe XD</span>
-                                        <span class="skill-level-text">75%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skill-item" style="--skill-level: 80%">
-                                <div class="skill-content">
-                                    <div class="skill-icon">
-                                        <i class="fas fa-film"></i>
-                                    </div>
-                                    <div class="skill-info">
-                                        <span class="skill-name">Web Animation</span>
-                                        <span class="skill-level-text">80%</span>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">JavaScript (ES6+)</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
                         </div>
                     </div>
-
-                    <div class="skills-category">
-                        <h3 class="category-title">
-                            <i class="fas fa-tools"></i>
-                            <span data-lang="skills-other">Other</span>
-                        </h3>
-                        <div class="skills-list">
-                            <div class="skill-item" style="--skill-level: 85%">
-                                <div class="skill-content">
-                                    <div class="skill-icon">
-                                        <i class="fab fa-github"></i>
-                                    </div>
-                                    <div class="skill-info">
-                                        <span class="skill-name">Git & GitHub</span>
-                                        <span class="skill-level-text">85%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skill-item" style="--skill-level: 75%">
-                                <div class="skill-content">
-                                    <div class="skill-icon">
-                                        <i class="fas fa-search"></i>
-                                    </div>
-                                    <div class="skill-info">
-                                        <span class="skill-name">SEO Principles</span>
-                                        <span class="skill-level-text">75%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skill-item" style="--skill-level: 80%">
-                                <div class="skill-content">
-                                    <div class="skill-icon">
-                                        <i class="fas fa-tachometer-alt"></i>
-                                    </div>
-                                    <div class="skill-info">
-                                        <span class="skill-name">Web Performance</span>
-                                        <span class="skill-level-text">80%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skill-item" style="--skill-level: 85%">
-                                <div class="skill-content">
-                                    <div class="skill-icon">
-                                        <i class="fas fa-check-circle"></i>
-                                    </div>
-                                    <div class="skill-info">
-                                        <span class="skill-name">Cross-browser Testing</span>
-                                        <span class="skill-level-text">85%</span>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">React.js</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Responsive Design</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-group">
+                    <h3 class="skills-title">Design</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">UI/UX Design</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Figma</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Adobe XD</span>
+                            <span class="skill-percentage">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Web Animation</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-group">
+                    <h3 class="skills-title">Other</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Git & GitHub</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">SEO Principles</span>
+                            <span class="skill-percentage">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Web Performance</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Cross-browser Testing</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
                         </div>
                     </div>
                 </div>
@@ -514,147 +494,68 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact-section animate-section">
-        <h2 class="section-title" data-translate="contact.title">Contact</h2>
-        <form id="contact-form" class="contact-form">
-            <div class="form-group">
-                <input type="text" id="name" name="name" required data-translate="contact.form.name" placeholder="Your Name">
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-form-container">
+                    <h2 class="section-title" data-lang="contact-title">Contact</h2>
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required>
+                            <label for="name" data-lang="contact-name">Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email" data-lang="contact-email">Email</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" required></textarea>
+                            <label for="message" data-lang="contact-message">Message</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-lang="contact-submit">Send Message</button>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-                <input type="email" id="email" name="email" required data-translate="contact.form.email" placeholder="Your Email">
-            </div>
-            <div class="form-group">
-                <textarea id="message" name="message" required data-translate="contact.form.message" placeholder="Your Message"></textarea>
-            </div>
-            <button type="submit" class="btn" data-translate="contact.form.submit">Send Message</button>
-        </form>
+        </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>DevStudio</h3>
-                <p data-lang="footer-desc">Creating digital experiences that inspire and innovate.</p>
-                <div class="social-links">
-                    <a href="https://github.com/DuongVo01" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-                    <a href="https://www.facebook.com/share/1AWu3pJGZE/" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.youtube.com/@_VoTrungDuong" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3 class="footer-title">DevStudio</h3>
+                    <p class="footer-description">
+                        Creating digital experiences that inspire and innovate.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h3 class="footer-title">Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates and insights.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">Subscribe</button>
+                    </form>
                 </div>
             </div>
-            <div class="footer-section">
-                <h3 data-lang="footer-links">Quick Links</h3>
-                <ul>
-                    <li><a href="#home" data-lang="nav-home">Home</a></li>
-                    <li><a href="#services" data-lang="nav-services">Services</a></li>
-                    <li><a href="#portfolio" data-lang="nav-portfolio">Portfolio</a></li>
-                    <li><a href="#about" data-lang="nav-about">About</a></li>
-                    <li><a href="#contact" data-lang="nav-contact">Contact</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <p>&copy; 2024 DevStudio. All rights reserved.</p>
             </div>
-            <div class="footer-section">
-                <h3 data-lang="newsletter-title">Newsletter</h3>
-                <p data-lang="newsletter-desc">Subscribe to our newsletter for updates and insights.</p>
-                <form class="newsletter-form">
-                    <input type="email" data-lang="newsletter-placeholder" placeholder="Enter your email">
-                    <button type="submit" data-lang="newsletter-button">Subscribe</button>
-                </form>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 DevStudio. <span data-lang="footer-rights">All rights reserved</span>.</p>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="js/translations.js"></script>
-    <script src="js/language.js"></script>
+    <!-- Custom JavaScript -->
     <script src="js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        // Particles configuration
-        particlesJS('particles-js', {
-            particles: {
-                number: {
-                    value: 80,
-                    density: {
-                        enable: true,
-                        value_area: 800
-                    }
-                },
-                color: {
-                    value: '#6c5ce7'
-                },
-                shape: {
-                    type: 'circle'
-                },
-                opacity: {
-                    value: 0.5,
-                    random: false
-                },
-                size: {
-                    value: 3,
-                    random: true
-                },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: '#6c5ce7',
-                    opacity: 0.2,
-                    width: 1
-                },
-                move: {
-                    enable: true,
-                    speed: 2,
-                    direction: 'none',
-                    random: false,
-                    straight: false,
-                    out_mode: 'out',
-                    bounce: false
-                }
-            },
-            interactivity: {
-                detect_on: 'canvas',
-                events: {
-                    onhover: {
-                        enable: true,
-                        mode: 'grab'
-                    },
-                    resize: true
-                },
-                modes: {
-                    grab: {
-                        distance: 140,
-                        line_linked: {
-                            opacity: 0.5
-                        }
-                    }
-                }
-            },
-            retina_detect: true
-        });
-
-        // Parallax effect
-        document.addEventListener('mousemove', (e) => {
-            const shapes = document.querySelectorAll('.parallax-shape');
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-
-            shapes.forEach(shape => {
-                const speed = shape.getAttribute('data-speed');
-                const moveX = (x * 100 * speed);
-                const moveY = (y * 100 * speed);
-                shape.style.transform = `translate(${moveX}px, ${moveY}px)`;
-            });
-        });
-    </script>
-
-    <button class="back-to-top" aria-label="Back to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- Add AOS Library -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/portfolio.js"></script>
 </body>
 </html> 
