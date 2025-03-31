@@ -64,46 +64,21 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Theme Switcher
-document.addEventListener('DOMContentLoaded', function() {
-    const themeSwitch = document.querySelector('.theme-switch');
-    const sunIcon = themeSwitch.querySelector('.fa-sun');
-    const moonIcon = themeSwitch.querySelector('.fa-moon');
+const themeSwitch = document.querySelector('.theme-switch');
+const body = document.body;
+
+// Check for saved theme preference
+const savedTheme = localStorage.getItem('theme') || 'light';
+body.setAttribute('data-theme', savedTheme);
+themeSwitch.classList.toggle('dark', savedTheme === 'dark');
+
+themeSwitch.addEventListener('click', () => {
+    const currentTheme = body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     
-    // Check for saved theme preference or default to 'light'
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    themeSwitch.classList.add(savedTheme);
-    
-    // Update icon visibility based on current theme
-    function updateIcons(theme) {
-        if (theme === 'dark') {
-            sunIcon.style.display = 'none';
-            moonIcon.style.display = 'block';
-        } else {
-            sunIcon.style.display = 'block';
-            moonIcon.style.display = 'none';
-        }
-    }
-    
-    // Initialize icons
-    updateIcons(savedTheme);
-    
-    // Handle theme switch click
-    themeSwitch.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
-        // Update theme
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        
-        // Update switch appearance
-        themeSwitch.classList.remove(currentTheme);
-        themeSwitch.classList.add(newTheme);
-        
-        // Update icons
-        updateIcons(newTheme);
-    });
+    body.setAttribute('data-theme', newTheme);
+    themeSwitch.classList.toggle('dark');
+    localStorage.setItem('theme', newTheme);
 });
 
 // Smooth Scroll
@@ -112,9 +87,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+            window.scrollTo({
+                top: target.offsetTop - 80,
+                behavior: 'smooth'
             });
         }
     });
@@ -123,57 +98,154 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Form Submission
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        // Add your form submission logic here
-        console.log('Form submitted');
+        
+        const formData = new FormData(contactForm);
+        const data = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            message: formData.get('message')
+        };
+
+        try {
+            // Here you would typically send the data to your backend
+            // For now, we'll just show a success message
+            alert('Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất có thể.');
+            contactForm.reset();
+        } catch (error) {
+            alert('Có lỗi xảy ra. Vui lòng thử lại sau.');
+        }
     });
 }
 
 // Newsletter Form
 const newsletterForm = document.querySelector('.newsletter-form');
 if (newsletterForm) {
-    newsletterForm.addEventListener('submit', function(e) {
+    newsletterForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        // Add your newsletter subscription logic here
-        console.log('Newsletter form submitted');
+        const email = newsletterForm.querySelector('input[type="email"]').value;
+        
+        if (email) {
+            alert('Cảm ơn bạn đã đăng ký nhận bản tin!');
+            newsletterForm.reset();
+        }
     });
 }
 
 // Portfolio Filtering
-function initPortfolioFilters() {
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
+const filterButtons = document.querySelectorAll('.filter-btn');
+const portfolioItems = document.querySelectorAll('.portfolio-item');
 
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active class from all buttons
-            filterBtns.forEach(b => b.classList.remove('active'));
-            // Add active class to clicked button
-            btn.classList.add('active');
-
-            const filter = btn.getAttribute('data-filter');
-
-            portfolioItems.forEach(item => {
-                const category = item.getAttribute('data-category');
-                
-                // Reset animation
-                item.style.animation = 'none';
-                item.offsetHeight; // Trigger reflow
-                item.style.animation = null;
-
-                if (filter === 'all' || filter === category) {
-                    item.style.display = 'block';
-                    item.style.animation = 'fadeInUp 0.6s ease forwards';
-                } else {
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        // Add active class to clicked button
+        button.classList.add('active');
+        
+        const filterValue = button.getAttribute('data-filter');
+        
+        portfolioItems.forEach(item => {
+            if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                item.style.display = 'block';
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, 100);
+            } else {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                setTimeout(() => {
                     item.style.display = 'none';
-                }
-            });
+                }, 300);
+            }
         });
     });
+});
+
+// Scroll Progress Indicator
+const progressBar = document.createElement('div');
+progressBar.className = 'progress-bar';
+document.body.appendChild(progressBar);
+
+window.addEventListener('scroll', () => {
+    const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (window.scrollY / windowHeight) * 100;
+    progressBar.style.width = `${progress}%`;
+});
+
+// Back to Top Button
+const backToTopButton = document.createElement('button');
+backToTopButton.className = 'back-to-top';
+backToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
+document.body.appendChild(backToTopButton);
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+        backToTopButton.style.display = 'flex';
+    } else {
+        backToTopButton.style.display = 'none';
+    }
+});
+
+backToTopButton.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Mobile Navigation
+const createMobileNav = () => {
+    const nav = document.querySelector('nav');
+    const hamburger = document.createElement('button');
+    hamburger.className = 'hamburger';
+    hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+    
+    const mobileMenu = document.createElement('div');
+    mobileMenu.className = 'mobile-menu';
+    
+    const navLinks = document.querySelector('.nav-links').cloneNode(true);
+    mobileMenu.appendChild(navLinks);
+    
+    nav.appendChild(hamburger);
+    nav.appendChild(mobileMenu);
+    
+    hamburger.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    });
+};
+
+// Initialize mobile navigation on small screens
+if (window.innerWidth <= 768) {
+    createMobileNav();
 }
 
-// Initialize portfolio filters when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    initPortfolioFilters();
-}); 
+// Handle window resize
+window.addEventListener('resize', () => {
+    if (window.innerWidth <= 768 && !document.querySelector('.hamburger')) {
+        createMobileNav();
+    }
+});
+
+// Add scroll animation to sections
+const animateSections = () => {
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+        section.classList.add('animate-section');
+        observer.observe(section);
+    });
+};
+
+// Initialize animations
+animateSections(); 
