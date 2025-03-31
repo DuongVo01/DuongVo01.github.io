@@ -63,22 +63,27 @@ document.addEventListener('DOMContentLoaded', function() {
     initLanguage();
 });
 
-// Theme Switcher
-const themeSwitch = document.querySelector('.theme-switch');
-const body = document.body;
+// Theme Toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.querySelector('.theme-toggle');
+    const root = document.documentElement;
 
-// Check for saved theme preference
-const savedTheme = localStorage.getItem('theme') || 'light';
-body.setAttribute('data-theme', savedTheme);
-themeSwitch.classList.toggle('dark', savedTheme === 'dark');
-
-themeSwitch.addEventListener('click', () => {
-    const currentTheme = body.getAttribute('data-theme');
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    // Kiểm tra theme đã lưu hoặc sử dụng theme hệ thống
+    const savedTheme = localStorage.getItem('theme');
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     
-    body.setAttribute('data-theme', newTheme);
-    themeSwitch.classList.toggle('dark');
-    localStorage.setItem('theme', newTheme);
+    // Đặt theme ban đầu
+    const initialTheme = savedTheme || systemTheme;
+    root.setAttribute('data-theme', initialTheme);
+
+    // Xử lý sự kiện click để chuyển đổi theme
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = root.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        root.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    });
 });
 
 // Smooth Scroll

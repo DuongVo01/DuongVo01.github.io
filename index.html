@@ -13,12 +13,13 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/portfolio.css">
     
-    <!-- Theme Switcher -->
+    <!-- Theme Initialization -->
     <script>
-        // Check if user has a theme preference
-        const userTheme = localStorage.getItem('theme');
-        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', userTheme || systemTheme);
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme || systemTheme);
+        })();
     </script>
 </head>
 <body>
@@ -26,27 +27,29 @@
     <nav class="navbar">
         <div class="container">
             <a href="#" class="logo">
-                <span class="name">Võ Trùng</span>
-                <span class="highlight">Dương</span>
+                Võ Trùng Dương
             </a>
+            
             <div class="nav-links">
-                <a href="#home" class="nav-link active" data-lang="nav-home">Trang Chủ</a>
-                <a href="#services" class="nav-link" data-lang="nav-services">Dịch Vụ</a>
-                <a href="#portfolio" class="nav-link" data-lang="nav-portfolio">Dự Án</a>
-                <a href="#about" class="nav-link" data-lang="nav-about">Giới Thiệu</a>
-                <a href="#contact" class="nav-link" data-lang="nav-contact">Liên Hệ</a>
+                <a href="#home" class="nav-link active" data-translate="nav-home">Trang Chủ</a>
+                <a href="#services" class="nav-link" data-translate="nav-services">Dịch Vụ</a>
+                <a href="#portfolio" class="nav-link" data-translate="nav-portfolio">Dự Án</a>
+                <a href="#about" class="nav-link" data-translate="nav-about">Giới Thiệu</a>
+                <a href="#contact" class="nav-link" data-translate="nav-contact">Liên Hệ</a>
             </div>
+
             <div class="nav-controls">
-                <button class="theme-toggle">
-                    <i class="fas fa-sun light-icon"></i>
-                    <i class="fas fa-moon dark-icon"></i>
+                <button class="theme-toggle" aria-label="Chuyển đổi giao diện sáng/tối">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
                 </button>
-                <div class="language-selector">
-                    <button class="lang-btn active" data-lang="en">EN</button>
-                    <button class="lang-btn" data-lang="vi">VI</button>
+                <div class="language-switch">
+                    <button class="lang-btn active" data-lang="vi">VI</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
                 </div>
             </div>
-            <button class="mobile-menu-btn">
+
+            <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -55,56 +58,105 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-section">
+    <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">
-                    <span data-lang="hero-name">Võ Trùng Dương</span>
+                    <span class="greeting" data-translate="greeting">Xin chào, tôi là</span>
+                    <span class="name">Võ Trùng Dương</span>
                 </h1>
-                <h2 class="hero-subtitle" data-lang="hero-title">Lập Trình Viên Web & Thiết Kế UI/UX</h2>
-                <p class="hero-description" data-lang="hero-description">
+                <h2 class="hero-subtitle" data-translate="role">Web Developer & UI/UX Designer</h2>
+                <p class="hero-description" data-translate="description">
                     Chuyên thiết kế và phát triển các website hiện đại, thân thiện với người dùng, 
                     kết hợp giữa thiết kế đẹp mắt và tính năng mạnh mẽ.
                 </p>
+                
                 <div class="hero-buttons">
-                    <a href="#portfolio" class="btn btn-primary" data-lang="hero-btn-portfolio">Xem Dự Án</a>
-                    <a href="#contact" class="btn btn-secondary" data-lang="hero-btn-contact">Liên Hệ</a>
+                    <a href="#portfolio" class="btn btn-primary">
+                        <span data-translate="view-projects">Xem Dự Án</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span data-translate="contact">Liên Hệ</span>
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+
+                <div class="hero-social">
+                    <a href="https://github.com/DuongVo01" class="social-link" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/duongvo01" class="social-link" target="_blank" rel="noopener">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://twitter.com/duongvo01" class="social-link" target="_blank" rel="noopener">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://instagram.com/duongvo01" class="social-link" target="_blank" rel="noopener">
+                        <i class="fab fa-instagram"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="services-section">
+    <section class="services" id="services">
         <div class="container">
-            <h2 class="section-title" data-lang="services-title">Dịch Vụ Của Tôi</h2>
+            <div class="section-header">
+                <h2 class="section-title" data-translate="services-title">Dịch Vụ Của Tôi</h2>
+                <p class="section-subtitle" data-translate="services-subtitle">
+                    Các giải pháp chuyên nghiệp cho dự án của bạn
+                </p>
+            </div>
+
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-code"></i>
                     </div>
-                    <h3 data-lang="service-web-title">Phát Triển Website</h3>
-                    <p data-lang="service-web-description">
-                        Xây dựng website tùy chỉnh với công nghệ hiện đại và các phương pháp tốt nhất.
+                    <h3 class="service-title" data-translate="web-dev">Phát Triển Website</h3>
+                    <p class="service-description" data-translate="web-dev-desc">
+                        Xây dựng website tùy chỉnh với công nghệ hiện đại và các phương pháp tối ưu.
                     </p>
+                    <ul class="service-features">
+                        <li>HTML5 / CSS3</li>
+                        <li>JavaScript / React</li>
+                        <li>Responsive Design</li>
+                        <li>Performance Optimization</li>
+                    </ul>
                 </div>
+
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-paint-brush"></i>
                     </div>
-                    <h3 data-lang="service-ui-title">Thiết Kế UI/UX</h3>
-                    <p data-lang="service-ui-description">
+                    <h3 class="service-title" data-translate="ui-design">Thiết Kế UI/UX</h3>
+                    <p class="service-description" data-translate="ui-design-desc">
                         Thiết kế giao diện đẹp và trực quan, tạo trải nghiệm người dùng tuyệt vời.
                     </p>
+                    <ul class="service-features">
+                        <li>User Research</li>
+                        <li>Wireframing</li>
+                        <li>UI Design</li>
+                        <li>Prototyping</li>
+                    </ul>
                 </div>
+
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3 data-lang="service-mobile-title">Ứng Dụng Di Động</h3>
-                    <p data-lang="service-mobile-description">
+                    <h3 class="service-title" data-translate="mobile-dev">Ứng Dụng Di Động</h3>
+                    <p class="service-description" data-translate="mobile-dev-desc">
                         Phát triển ứng dụng di động cho iOS và Android với trải nghiệm mượt mà.
                     </p>
+                    <ul class="service-features">
+                        <li>React Native</li>
+                        <li>Flutter</li>
+                        <li>Native Apps</li>
+                        <li>Cross-platform</li>
+                    </ul>
                 </div>
             </div>
         </div>
