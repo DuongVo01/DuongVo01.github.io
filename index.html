@@ -108,91 +108,203 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio-section animate-section">
-        <h2 class="section-title" data-translate="portfolio.title">Portfolio</h2>
-        <div class="portfolio-filters">
-            <button class="filter-btn active" data-filter="all" data-translate="portfolio.filters.all">All</button>
-            <button class="filter-btn" data-filter="web" data-translate="portfolio.filters.web">Web</button>
-            <button class="filter-btn" data-filter="design" data-translate="portfolio.filters.design">Design</button>
-            <button class="filter-btn" data-filter="other" data-translate="portfolio.filters.other">Other</button>
-        </div>
+    <section class="portfolio-section" id="portfolio">
+        <div class="container">
+            <h2>Portfolio</h2>
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">
+                    <span>All</span>
+                </button>
+                <button class="filter-btn" data-filter="web">
+                    <span>Web Development</span>
+                </button>
+                <button class="filter-btn" data-filter="app">
+                    <span>Mobile Apps</span>
+                </button>
+                <button class="filter-btn" data-filter="design">
+                    <span>UI/UX Design</span>
+                </button>
+            </div>
+            <div class="portfolio-grid">
+                <!-- Project 1 -->
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-item-inner">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3" alt="E-commerce Website">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>E-commerce Website</h3>
+                                <p>A full-featured e-commerce platform with modern design and seamless user experience.</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">HTML5</span>
+                                    <span class="tech-tag">CSS3</span>
+                                    <span class="tech-tag">JavaScript</span>
+                                    <span class="tech-tag">React</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="#" class="btn btn-demo">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        View Demo
+                                    </a>
+                                    <a href="#" class="btn btn-github">
+                                        <i class="fab fa-github"></i>
+                                        GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="portfolio-grid">
-            <div class="portfolio-item" data-category="web">
-                <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=70" 
-                     loading="lazy"
-                     width="800"
-                     height="600"
-                     alt="E-commerce Website">
-                <div class="portfolio-overlay">
-                    <h3 data-lang="portfolio-item1-title">Website Thương Mại Điện Tử</h3>
-                    <p data-lang="portfolio-item1-desc">Trải nghiệm mua sắm trực tuyến hiện đại với thanh toán mượt mà và hiển thị sản phẩm đẹp mắt</p>
-                    <a href="#" class="portfolio-link" data-lang="portfolio-view">Xem Chi Tiết</a>
+                <!-- Project 2 -->
+                <div class="portfolio-item" data-category="app">
+                    <div class="portfolio-item-inner">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?ixlib=rb-4.0.3" alt="Fitness Tracking App">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Fitness Tracking App</h3>
+                                <p>A mobile application for tracking workouts, nutrition, and fitness goals.</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">React Native</span>
+                                    <span class="tech-tag">Node.js</span>
+                                    <span class="tech-tag">MongoDB</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="#" class="btn btn-demo">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        View Demo
+                                    </a>
+                                    <a href="#" class="btn btn-github">
+                                        <i class="fab fa-github"></i>
+                                        GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="portfolio-item" data-category="app">
-                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=70" 
-                     loading="lazy"
-                     width="800"
-                     height="600"
-                     alt="Fitness App">
-                <div class="portfolio-overlay">
-                    <h3 data-lang="portfolio-item2-title">Ứng Dụng Theo Dõi Sức Khỏe</h3>
-                    <p data-lang="portfolio-item2-desc">Ứng dụng di động toàn diện để theo dõi tập luyện và duy trì lối sống lành mạnh</p>
-                    <a href="#" class="portfolio-link" data-lang="portfolio-view">Xem Chi Tiết</a>
+
+                <!-- Project 3 -->
+                <div class="portfolio-item" data-category="design">
+                    <div class="portfolio-item-inner">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3" alt="UI/UX Design System">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>UI/UX Design System</h3>
+                                <p>A comprehensive design system with reusable components and consistent styling.</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">Figma</span>
+                                    <span class="tech-tag">Adobe XD</span>
+                                    <span class="tech-tag">UI/UX</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="#" class="btn btn-demo">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        View Design
+                                    </a>
+                                    <a href="#" class="btn btn-github">
+                                        <i class="fab fa-behance"></i>
+                                        Behance
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="portfolio-item" data-category="design">
-                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=70" 
-                     loading="lazy"
-                     width="800"
-                     height="600"
-                     alt="Brand Design">
-                <div class="portfolio-overlay">
-                    <h3 data-lang="portfolio-item3-title">Thiết Kế Nhận Diện Thương Hiệu</h3>
-                    <p data-lang="portfolio-item3-desc">Hệ thống nhận diện thương hiệu hoàn chỉnh bao gồm logo, bảng màu và tài liệu marketing</p>
-                    <a href="#" class="portfolio-link" data-lang="portfolio-view">Xem Chi Tiết</a>
+
+                <!-- Project 4 -->
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-item-inner">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3" alt="Portfolio Website">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Portfolio Website</h3>
+                                <p>A modern and responsive portfolio website showcasing creative work.</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">HTML5</span>
+                                    <span class="tech-tag">CSS3</span>
+                                    <span class="tech-tag">JavaScript</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="#" class="btn btn-demo">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        View Demo
+                                    </a>
+                                    <a href="#" class="btn btn-github">
+                                        <i class="fab fa-github"></i>
+                                        GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="portfolio-item" data-category="web">
-                <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=70" 
-                     loading="lazy"
-                     width="800"
-                     height="600"
-                     alt="Project Management Tool">
-                <div class="portfolio-overlay">
-                    <h3 data-lang="portfolio-item4-title">Công Cụ Quản Lý Dự Án</h3>
-                    <p data-lang="portfolio-item4-desc">Ứng dụng web mạnh mẽ cho phép cộng tác nhóm và theo dõi dự án</p>
-                    <a href="#" class="portfolio-link" data-lang="portfolio-view">Xem Chi Tiết</a>
+
+                <!-- Project 5 -->
+                <div class="portfolio-item" data-category="app">
+                    <div class="portfolio-item-inner">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3" alt="Task Management App">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Task Management App</h3>
+                                <p>A productivity app for managing tasks, projects, and team collaboration.</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">Flutter</span>
+                                    <span class="tech-tag">Firebase</span>
+                                    <span class="tech-tag">Cloud Functions</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="#" class="btn btn-demo">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        View Demo
+                                    </a>
+                                    <a href="#" class="btn btn-github">
+                                        <i class="fab fa-github"></i>
+                                        GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="portfolio-item" data-category="web">
-                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=70" 
-                     loading="lazy"
-                     width="800"
-                     height="600"
-                     alt="Restaurant Website">
-                <div class="portfolio-overlay">
-                    <h3 data-lang="portfolio-item5-title">Website Nhà Hàng</h3>
-                    <p data-lang="portfolio-item5-desc">Website sang trọng với hệ thống đặt món trực tuyến và quản lý đặt bàn</p>
-                    <a href="#" class="portfolio-link" data-lang="portfolio-view">Xem Chi Tiết</a>
-                </div>
-            </div>
-            
-            <div class="portfolio-item" data-category="app">
-                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=70" 
-                     loading="lazy"
-                     width="800"
-                     height="600"
-                     alt="Educational Platform">
-                <div class="portfolio-overlay">
-                    <h3 data-lang="portfolio-item6-title">Nền Tảng Giáo Dục</h3>
-                    <p data-lang="portfolio-item6-desc">Nền tảng học tập tương tác với quản lý khóa học và theo dõi học viên</p>
-                    <a href="#" class="portfolio-link" data-lang="portfolio-view">Xem Chi Tiết</a>
+
+                <!-- Project 6 -->
+                <div class="portfolio-item" data-category="design">
+                    <div class="portfolio-item-inner">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3" alt="Brand Identity Design">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Brand Identity Design</h3>
+                                <p>Complete brand identity design including logo, typography, and color system.</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">Adobe Illustrator</span>
+                                    <span class="tech-tag">Branding</span>
+                                    <span class="tech-tag">Typography</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="#" class="btn btn-demo">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        View Design
+                                    </a>
+                                    <a href="#" class="btn btn-github">
+                                        <i class="fab fa-behance"></i>
+                                        Behance
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -540,5 +652,9 @@
     <button class="back-to-top" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </button>
+
+    <!-- Add AOS Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 </body>
 </html> 
