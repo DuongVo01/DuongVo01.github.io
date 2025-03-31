@@ -33,14 +33,30 @@ const translations = {
         "service-mobile-desc": "Native and cross-platform mobile applications for iOS and Android.",
         
         // Portfolio Section
-        "portfolio-title": "My Work",
+        "portfolio-title": "My Projects",
+        "filter-all": "All",
+        "filter-web": "Website",
+        "filter-app": "Application",
+        "filter-design": "Design",
+        "portfolio-view": "View Details",
+        
         "portfolio-item1-title": "E-commerce Website",
         "portfolio-item1-desc": "A modern online shopping experience with seamless checkout and beautiful product displays",
+        
         "portfolio-item2-title": "Fitness Tracking App",
         "portfolio-item2-desc": "A comprehensive mobile app for tracking workouts and maintaining a healthy lifestyle",
+        
         "portfolio-item3-title": "Brand Identity Design",
         "portfolio-item3-desc": "Complete brand identity system including logo, color palette, and marketing materials",
-        "portfolio-view": "View Project",
+        
+        "portfolio-item4-title": "Project Management Tool",
+        "portfolio-item4-desc": "A powerful web application for team collaboration and project tracking",
+        
+        "portfolio-item5-title": "Restaurant Website",
+        "portfolio-item5-desc": "An elegant website with online ordering system and reservation management",
+        
+        "portfolio-item6-title": "Educational Platform",
+        "portfolio-item6-desc": "An interactive learning platform with course management and student tracking",
         
         // About Section
         "about-title": "About Me",
@@ -68,7 +84,20 @@ const translations = {
         "newsletter-title": "Newsletter",
         "newsletter-desc": "Subscribe to our newsletter for updates and insights.",
         "newsletter-placeholder": "Enter your email",
-        "newsletter-button": "Subscribe"
+        "newsletter-button": "Subscribe",
+        
+        // Timeline
+        "timeline-current": "Freelance Web Developer",
+        "timeline-current-desc": "Developing independent web projects with a focus on UI/UX and user experience.",
+        "timeline-previous": "Frontend Developer at TechCorp",
+        "timeline-previous-desc": "Developed user interfaces for large-scale web applications using React and TypeScript.",
+        "timeline-education": "University of Technology",
+        "timeline-education-desc": "Graduated with a degree in Information Technology, specializing in web development.",
+        
+        // Skills Categories
+        "skills-frontend": "Frontend",
+        "skills-design": "Design",
+        "skills-other": "Other"
     },
     vi: {
         // Loading
@@ -104,13 +133,29 @@ const translations = {
         
         // Portfolio Section
         "portfolio-title": "Dự Án Của Tôi",
+        "filter-all": "Tất Cả",
+        "filter-web": "Website",
+        "filter-app": "Ứng Dụng",
+        "filter-design": "Thiết Kế",
+        "portfolio-view": "Xem Chi Tiết",
+        
         "portfolio-item1-title": "Website Thương Mại Điện Tử",
-        "portfolio-item1-desc": "Website bán hàng hiện đại với quy trình thanh toán mượt mà và giao diện sản phẩm đẹp mắt",
+        "portfolio-item1-desc": "Trải nghiệm mua sắm trực tuyến hiện đại với thanh toán mượt mà và hiển thị sản phẩm đẹp mắt",
+        
         "portfolio-item2-title": "Ứng Dụng Theo Dõi Sức Khỏe",
         "portfolio-item2-desc": "Ứng dụng di động toàn diện để theo dõi tập luyện và duy trì lối sống lành mạnh",
+        
         "portfolio-item3-title": "Thiết Kế Nhận Diện Thương Hiệu",
         "portfolio-item3-desc": "Hệ thống nhận diện thương hiệu hoàn chỉnh bao gồm logo, bảng màu và tài liệu marketing",
-        "portfolio-view": "Xem Chi Tiết",
+        
+        "portfolio-item4-title": "Công Cụ Quản Lý Dự Án",
+        "portfolio-item4-desc": "Ứng dụng web mạnh mẽ cho phép cộng tác nhóm và theo dõi dự án",
+        
+        "portfolio-item5-title": "Website Nhà Hàng",
+        "portfolio-item5-desc": "Website sang trọng với hệ thống đặt món trực tuyến và quản lý đặt bàn",
+        
+        "portfolio-item6-title": "Nền Tảng Giáo Dục",
+        "portfolio-item6-desc": "Nền tảng học tập tương tác với quản lý khóa học và theo dõi học viên",
         
         // About Section
         "about-title": "Về Tôi",
@@ -138,7 +183,20 @@ const translations = {
         "newsletter-title": "Đăng Ký Nhận Tin",
         "newsletter-desc": "Đăng ký để nhận các cập nhật và thông tin mới nhất.",
         "newsletter-placeholder": "Nhập email của bạn",
-        "newsletter-button": "Đăng Ký"
+        "newsletter-button": "Đăng Ký",
+        
+        // Timeline
+        "timeline-current": "Freelance Web Developer",
+        "timeline-current-desc": "Phát triển các dự án web độc lập, tập trung vào UI/UX và trải nghiệm người dùng.",
+        "timeline-previous": "Frontend Developer tại TechCorp",
+        "timeline-previous-desc": "Phát triển giao diện người dùng cho các ứng dụng web quy mô lớn, sử dụng React và TypeScript.",
+        "timeline-education": "Đại học Công nghệ",
+        "timeline-education-desc": "Tốt nghiệp chuyên ngành Công nghệ Thông tin, chuyên sâu về phát triển web.",
+        
+        // Skills Categories
+        "skills-frontend": "Frontend",
+        "skills-design": "Thiết Kế",
+        "skills-other": "Khác"
     }
 }; 
 
