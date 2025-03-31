@@ -1,66 +1,86 @@
 // Language Switcher
-document.addEventListener('DOMContentLoaded', function() {
-    const langSwitch = document.querySelector('.lang-switch');
-    const langButtons = document.querySelectorAll('.lang-btn');
-    
-    // Get saved language preference or default to 'vi'
-    const savedLang = localStorage.getItem('language') || 'vi';
-    
-    // Initialize language
-    function initLanguage() {
-        // Set active state
-        langSwitch.setAttribute('data-active', savedLang);
-        langButtons.forEach(btn => {
-            const lang = btn.getAttribute('data-lang');
-            btn.classList.toggle('active', lang === savedLang);
-        });
-        
-        // Update content
-        updateContent(savedLang);
+const translations = {
+    vi: {
+        'nav-home': 'Trang Chủ',
+        'nav-services': 'Dịch Vụ',
+        'nav-portfolio': 'Dự Án',
+        'nav-about': 'Giới Thiệu',
+        'nav-contact': 'Liên Hệ',
+        'greeting': 'Xin chào, tôi là',
+        'role': 'Web Developer & UI/UX Designer',
+        'description': 'Chuyên thiết kế và phát triển các website hiện đại, thân thiện với người dùng, kết hợp giữa thiết kế đẹp mắt và tính năng mạnh mẽ.',
+        'view-projects': 'Xem Dự Án',
+        'contact': 'Liên Hệ',
+        'newsletter-placeholder': 'Nhập email của bạn',
+        'subscribe': 'Đăng Ký',
+        'footer-menu': 'Menu',
+        'footer-contact': 'Liên Hệ',
+        'footer-follow': 'Theo Dõi'
+    },
+    en: {
+        'nav-home': 'Home',
+        'nav-services': 'Services',
+        'nav-portfolio': 'Portfolio',
+        'nav-about': 'About',
+        'nav-contact': 'Contact',
+        'greeting': 'Hello, I am',
+        'role': 'Web Developer & UI/UX Designer',
+        'description': 'Specializing in designing and developing modern, user-friendly websites that combine beautiful design with powerful functionality.',
+        'view-projects': 'View Projects',
+        'contact': 'Contact',
+        'newsletter-placeholder': 'Enter your email',
+        'subscribe': 'Subscribe',
+        'footer-menu': 'Menu',
+        'footer-contact': 'Contact',
+        'footer-follow': 'Follow'
     }
-    
-    // Handle language switch
+};
+
+// Khởi tạo ngôn ngữ mặc định
+let currentLang = localStorage.getItem('lang') || 'vi';
+document.documentElement.setAttribute('lang', currentLang);
+
+// Cập nhật active state cho nút ngôn ngữ
+function updateLanguageButtons() {
+    const langButtons = document.querySelectorAll('.lang-btn');
     langButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const lang = this.getAttribute('data-lang');
-            if (lang === localStorage.getItem('language')) return;
-            
-            // Update active states
-            langSwitch.setAttribute('data-active', lang);
-            langButtons.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            
-            // Add transition class
-            document.body.classList.add('lang-transition');
-            
-            // Animate content out
-            const content = document.querySelector('.content-wrapper');
-            if (content) {
-                content.style.opacity = '0';
-                content.style.transform = 'translateY(20px)';
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === currentLang);
+    });
+}
+
+// Chuyển đổi ngôn ngữ
+function switchLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('lang', lang);
+    document.documentElement.setAttribute('lang', lang);
+
+    // Cập nhật tất cả các phần tử có thuộc tính data-translate
+    document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang][key]) {
+            if (element.tagName === 'INPUT' && element.getAttribute('placeholder')) {
+                element.placeholder = translations[lang][key];
+            } else {
+                element.textContent = translations[lang][key];
             }
-            
-            // Update language after brief delay for animation
-            setTimeout(() => {
-                updateContent(lang);
-                localStorage.setItem('language', lang);
-                
-                // Animate content back in
-                if (content) {
-                    content.style.opacity = '1';
-                    content.style.transform = 'translateY(0)';
-                }
-                
-                // Remove transition class
-                setTimeout(() => {
-                    document.body.classList.remove('lang-transition');
-                }, 300);
-            }, 200);
+        }
+    });
+
+    updateLanguageButtons();
+}
+
+// Xử lý sự kiện click cho nút ngôn ngữ
+document.addEventListener('DOMContentLoaded', function() {
+    const langButtons = document.querySelectorAll('.lang-btn');
+    langButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lang = btn.getAttribute('data-lang');
+            switchLanguage(lang);
         });
     });
-    
-    // Initialize
-    initLanguage();
+
+    // Áp dụng ngôn ngữ hiện tại khi tải trang
+    switchLanguage(currentLang);
 });
 
 // Theme Toggle
