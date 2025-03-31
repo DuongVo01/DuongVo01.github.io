@@ -1,0 +1,9 @@
+[33meabfc48[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m Fix navigation, theme toggle and language switch functionality
+[33m7336b4d[m Fix website structure and styling issues
+[33mb30398f[m Update portfolio section with new projects and improved styling
+[33mf940fef[m Restore website to previous state and improve overall design
+[33mc323750[m Update social media links and improve website styling
+[33m8aa8725[m Cải thiện hiệu ứng chuyển đổi ngôn ngữ và cập nhật giao diện
+[33m8b4360c[m Remove duplicate language.js file
+[33m9e0d779[m Update website design: Add language switcher, dark mode, and improve overall UI
+[33md8306b0[m Initial commit
